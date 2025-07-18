@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <link rel="icon" type="image/png" href="https://www.lobs.fr/uploads/favicon.png" sizes="32x32">
   <script>
     (function(){ emailjs.init('MeBHBDCBqY5lMTJK7'); })();
   </script>
@@ -869,15 +870,37 @@
         return { id: prod.ID, product: prod.Product.trim(), annual: totalQty, monthly, boxes };
       });
 
-      const recapRows = productsData.filter(p => p.annual > 0)
-        .map(p => `<tr><td>${p.product}</td><td style="text-align:center">${p.annual}</td><td style="text-align:center">${p.boxes}</td></tr>`)
-        .join('');
-      const recapTable = `
-        <h2>Récapitulatif de vos prévisions</h2>
-        <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse">
-          <thead><tr><th>Produit</th><th>Quantité</th><th>Cartons</th></tr></thead>
-          <tbody>${recapRows}</tbody>
-        </table>
+    const recapRows = productsData
+      .filter(p => p.annual > 0)
+      .map(p =>
+        `<tr>
+          <td>${p.product}</td>
+          <td style="text-align:center">${p.monthly[0]}</td>
+          <td style="text-align:center">${p.monthly[1]}</td>
+          <td style="text-align:center">${p.monthly[2]}</td>
+          <td style="text-align:center">${p.monthly[3]}</td>
+          <td style="text-align:center">${p.annual}</td>
+          <td style="text-align:center">${p.boxes}</td>
+        </tr>`
+      )
+      .join('');
+
+    const recapTable = `
+      <h2>Récapitulatif de vos prévisions</h2>
+      <table border="1" cellpadding="6" cellspacing="0" style="border-collapse:collapse">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Q1 (Jan–Mar)</th>
+            <th>Q2 (Avr–Jun)</th>
+            <th>Q3 (Jul–Sep)</th>
+            <th>Q4 (Oct–Dec)</th>
+            <th>Total annuel</th>
+            <th>Cartons</th>
+          </tr>
+        </thead>
+        <tbody>${recapRows}</tbody>
+      </table>
       `;
 
       emailjs.send('service_jqo1ofc', 'template_rxtdtfa', {
