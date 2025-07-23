@@ -558,11 +558,10 @@
   <br>
   <p class="form-description">
     Chers partenaires,<br><br>
-    <strong>Afin de mieux anticiper vos besoins et garantir la disponibilité de nos produits, merci de renseigner vos prévisions de commandes annuelles.</strong> Veuillez indiquer vos besoins par trimestres (Jan-Mar, Avr-Jun, Jul-Sep, Oct-Dec) et la quantité annuelle se mettre à jour automatiquement. Si certains produits ont les mêmes besoins pour tous les trimestres, utilisez le bouton <strong>"AUTO-REMPLIR"</strong> pour cette ligne et les quatres trimestres prendront la valeur du premier trimestre.<br><br>
+    <strong>Afin de mieux anticiper vos besoins et garantir la disponibilité de nos produits, merci de renseigner vos prévisions de commandes annuelles.</strong> Veuillez indiquer vos besoins par trimestres (Jan-Mar, Avr-Jun, Jul-Sep, Oct-Dec) et la quantité annuelle se mettra à jour automatiquement. Si certains produits ont les mêmes besoins pour tous les trimestres, utilisez le bouton <strong>"AUTO-REMPLIR"</strong> pour cette ligne et les quatres trimestres prendront la valeur du premier trimestre.<br><br>
     La quantité annuelle se convertit automatiquement en nombre de cartons (colonne "Cartons"). Les valeurs non entières signalent un besoin partiel et le nombre de cartons sera surligné en orange : n’hésitez pas à ajuster vos prévisions pour obtenir un nombre de cartons entiers ou bien cliquer sur le bouton <strong>"Arrondir aux cartons"</strong>.<br><br>
     Toutes les quantités saisies sont exprimées dans l'unité marqué dans la colonne "Qte par Carton", l'unité de base (bolus, comprimés, flacons, sachets...).<br><br>
     <strong>Le stock actuel, renseigné dans la colonne « Stock actuel », reflète vos réserves disponibles à ce jour : il nous permet d’ajuster notre production pour éviter ruptures et surstocks, et de garantir une continuité optimale de vos approvisionnements.</strong><br><br>
-    Une fois tous les champs complétés, vous pouvez cliquer sur le bouton <strong>"Calculer conteneurs optimaux"</strong> pour voir combien de containers représente vos besoins annuels et ainsi ajuster vos prévisions pour avoir des conteneurs remplis.
     Enfin, cliquez sur le bouton<strong>"Valider ma prévision"</strong> pour nous transmettre vos estimations. <strong>Veuillez cliquer jusqu'a ce que vous soyez rediriger vers une page de remerciement ou nous ne reçevrons pas vos prévisions. </strong>Nous vous remercions de votre collaboration et restons à votre disposition pour toute question. <br><br>
     Pour plus d'informations,
     <a href="https://www.lobs.fr/" target="_blank" rel="noopener">
@@ -735,11 +734,7 @@
   <br>
   <br>
 
-  <button id="calculate-containers" class="calculer-button">
-    <span class="circle1"></span><span class="circle2"></span><span class="circle3"></span>
-    <span class="circle4"></span><span class="circle5"></span><span class="text">Calculer conteneurs optimaux</span>
-  </button>
-  <div id="container-result" style="margin-top:1em;"></div>
+
 
 
 
@@ -753,15 +748,7 @@
 
   <script>
     const produits = [{"ID":"ALB25V_50","Product":"ALBEN 2500","Presentation":"Seau de","Quantité":"50 boli","Qte_par_Carton":600,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0564,"Poids":14.0,"Refrigerer":0},{"ID":"ALB25B_50","Product":"ALBEN  2500","Presentation":"Seau de","Quantité":"50 boli","Qte_par_Carton":600,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0564,"Poids":14.0,"Refrigerer":0},{"ID":"ALB25V_5C","Product":"ALBEN 2500  vrac","Presentation":"Seau de","Quantité":"500 boli","Qte_par_Carton":1000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0595,"Poids":19.5,"Refrigerer":0},{"ID":"ALB25BL_50","Product":"ALBEN 2500 BLISTER","Presentation":"Coffret de 5 Boîtes de 10 boli,","Quantité":"50 boli","Qte_par_Carton":500,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0359,"Poids":12.5,"Refrigerer":1},{"ID":"ALB25_B2","Product":"ALBEN 2500 Boîte de 2 boli","Presentation":"Coffret de 50 boîtes de 2 boli,","Quantité":"100 boli","Qte_par_Carton":600,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0469,"Poids":15.5,"Refrigerer":0},{"ID":"ALB30_2K","Product":"ALBEN 300","Presentation":"Seau de","Quantité":"2000 cps","Qte_par_Carton":4000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Comprimés","Volume":0.0369,"Poids":15.0,"Refrigerer":0},{"ID":"ALB30BL_1C","Product":"ALBEN 300 Blister","Presentation":"Coffret de 5 Boîtes de 20 boli,","Quantité":"100 cps","Qte_par_Carton":2000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Comprimés","Volume":0.0355,"Poids":10.0,"Refrigerer":1},{"ID":"ALB30_1C","Product":"ALBEN 300","Presentation":"Pot de","Quantité":"100 cps","Qte_par_Carton":4000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Comprimés","Volume":0.0368,"Poids":13.7,"Refrigerer":0},{"ID":"ALBCI_50","Product":"ALBEN CIBLE","Presentation":"Boîte de 25 pochettes de 2 boli,","Quantité":"50 boli","Qte_par_Carton":1000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0594,"Poids":21.0,"Refrigerer":0},{"ID":"ALB10_1L","Product":"ALBEN 10%","Presentation":"Flacon de","Quantité":"1  L","Qte_par_Carton":10,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.026,"Poids":12.5,"Refrigerer":0},{"ID":"ANTI_1C","Product":"ANTITIC ","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":100,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.035,"Poids":12.7,"Refrigerer":0},{"ID":"ANTI_250","Product":"ANTITIC ","Presentation":"Flacon de","Quantité":"250 ml","Qte_par_Carton":40,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.027,"Poids":12.7,"Refrigerer":0},{"ID":"ANTI_1L","Product":"ANTITIC ","Presentation":"Flacon de","Quantité":"1  L","Qte_par_Carton":10,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.02,"Poids":13.2,"Refrigerer":0},{"ID":"BIO5_50","Product":"BIOCYCLINE 5%","Presentation":"Flacon de","Quantité":"50 ml","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.024,"Poids":12.0,"Refrigerer":0},{"ID":"BIO5_1C","Product":"BIOCYCLINE 5%","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0},{"ID":"BIO10_50","Product":"BIOCYCLINE 10%","Presentation":"Flacon de","Quantité":"50 ml","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.024,"Poids":12.0,"Refrigerer":0},{"ID":"BIO10_1C","Product":"BIOCYCLINE 10%","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0},{"ID":"BIO20_50","Product":"BIOCYCLINE 20%","Presentation":"Flacon de","Quantité":"50ml","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.024,"Poids":12.0,"Refrigerer":0},{"ID":"BIO20_1C","Product":"BIOCYCLINE 20%","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0},{"ID":"DELSE_20","Product":"DELTA LOBS SE ","Presentation":"Flacon de","Quantité":"20ml","Qte_par_Carton":200,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.025,"Poids":6.7,"Refrigerer":1},{"ID":"DELSE_1C","Product":"DELTA LOBS SE ","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":100,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.03,"Poids":12.9,"Refrigerer":1},{"ID":"DELSE_1L","Product":"DELTA LOBS SE ","Presentation":"Flacon de","Quantité":"1 L","Qte_par_Carton":10,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.024,"Poids":11.4,"Refrigerer":1},{"ID":"DELPO_5C","Product":"DELTA LOBS PO ","Presentation":"Flacon double sortie de","Quantité":"500 ml","Qte_par_Carton":20,"Aires":"APE","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.015,"Poids":13.5,"Refrigerer":1},{"ID":"DISTO_1K","Product":"DISTOCUR","Presentation":"Seaux de","Quantité":"1000 boli","Qte_par_Carton":4000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0361,"Poids":13.2,"Refrigerer":0},{"ID":"DISTO_1C","Product":"DISTOCUR","Presentation":"Pot  de","Quantité":"100 boli","Qte_par_Carton":4000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0368,"Poids":14.5,"Refrigerer":0},{"ID":"DOXYL_1C","Product":"DOXYLOBS 500","Presentation":"Boîte de sachets de 100g,","Quantité":"25 sachets","Qte_par_Carton":200,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Sachets","Volume":0.0643,"Poids":23.5,"Refrigerer":0},{"ID":"DOXYL_1K","Product":"DOXYLOBS 500","Presentation":"Pot de","Quantité":"1 Kg","Qte_par_Carton":18,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Pots","Volume":0.055,"Poids":21.0,"Refrigerer":0},{"ID":"FERL_1C","Product":"FERLOBSTRAN B12","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":60,"Aires":"VIT","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.023,"Poids":14.0,"Refrigerer":1},{"ID":"IVMEC_10","Product":"IVERMEC ","Presentation":"flacon de","Quantité":"10 ml","Qte_par_Carton":600,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":0,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0334,"Poids":16.0,"Refrigerer":0},{"ID":"IVMEC_20","Product":"IVERMEC ","Presentation":"flacon de","Quantité":"20 ml","Qte_par_Carton":400,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":0,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0405,"Poids":15.0,"Refrigerer":0},{"ID":"IVMEC_50","Product":"IVERMEC ","Presentation":"flacon plastique de","Quantité":"50 ml","Qte_par_Carton":100,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":0,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.024,"Poids":8.0,"Refrigerer":0},{"ID":"IVMEC_1C","Product":"IVERMEC ","Presentation":"flacon plastique de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":0,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0},{"ID":"LEV20_1C","Product":"LEVALOBS 200","Presentation":"Boîte de sachets de 100g,","Quantité":"25 sachets","Qte_par_Carton":200,"Aires":"API","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0643,"Poids":23.5,"Refrigerer":0},{"ID":"LEV20_1K","Product":"LEVALOBS 200","Presentation":"Pot de","Quantité":"1kg","Qte_par_Carton":18,"Aires":"API","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":0,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Pots","Volume":0.0485,"Poids":21.0,"Refrigerer":0},{"ID":"LOBCL_1C","Product":"LOBACALCIUM","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":80,"Aires":"VIT","vache":1,"volaille":1,"lapin":1,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":1,"AMM":0,"Unité":"Flacons","Volume":0.028,"Poids":18.0,"Refrigerer":1},{"ID":"LOBAX_1C","Product":"LOBAMAX VOLAILLE","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":80,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.021,"Poids":12.0,"Refrigerer":0},{"ID":"LOBAX_5C","Product":"LOBAMAX VOLAILLE","Presentation":"Flacon de","Quantité":"500ml","Qte_par_Carton":24,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0177,"Poids":15.0,"Refrigerer":0},{"ID":"LOBAX_5L","Product":"LOBAMAX VOLAILLE","Presentation":"Flacon de","Quantité":"5L","Qte_par_Carton":4,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0353,"Poids":23.0,"Refrigerer":0},{"ID":"LOBAXR_10C","Product":"LOBAMAX RUMINANTS","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":0,"Unité":"Flacons","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"LOBAXR_25C","Product":"LOBAMAX RUMINANTS","Presentation":"Flacon de","Quantité":"250 ml","Qte_par_Carton":40,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":0,"Unité":"Flacons","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"LOBAXR_50C","Product":"LOBAMAX RUMINANTS","Presentation":"Flacon de","Quantité":"500 ml","Qte_par_Carton":24,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":0,"Unité":"Flacons","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"LOBAXRS_25C","Product":"LOBAMAX RUMINANTS","Presentation":"Spray de","Quantité":"250 ml","Qte_par_Carton":40,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":0,"Unité":"Sprays","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"LOBLA_CO","Product":"LOBAMIN LAYERS","Presentation":"Boîte de","Quantité":"25 sachets de 150g et 5 sachets 15g","Qte_par_Carton":120,"Aires":"VIT","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Sachets","Volume":0.0484,"Poids":17.0,"Refrigerer":1},{"ID":"LOBLA_1K","Product":"LOBAMIN LAYERS","Presentation":"Seau de","Quantité":"1kg","Qte_par_Carton":18,"Aires":"VIT","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Seaux","Volume":0.0485,"Poids":21.0,"Refrigerer":1},{"ID":"LPHEN_1C","Product":"LOBAPHEN","Presentation":"Pot  de","Quantité":"100 boli","Qte_par_Carton":400,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Pots","Volume":0.0284,"Poids":14.0,"Refrigerer":0},{"ID":"LOBAINJ_1C","Product":"LOBAVIT INJECTABLE","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":80,"Aires":"VIT","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":1,"Chien":1,"AMM":0,"Unité":"Flacons","Volume":0.028,"Poids":18.0,"Refrigerer":1},{"ID":"LOBA+_15","Product":"LOBAVIT PLUS 15g","Presentation":"Boîte de 100","Quantité":"sachet de 15g","Qte_par_Carton":1000,"Aires":"VIT","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.07,"Poids":18.5,"Refrigerer":1},{"ID":"LOBAV_1C","Product":"LOBAVIT VOLAILLE","Presentation":"Boîte de","Quantité":"25 sachets de 100 gr","Qte_par_Carton":200,"Aires":"VIT","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0643,"Poids":23.5,"Refrigerer":1},{"ID":"LOBAV_1K","Product":"LOBAVIT VOLAILLE","Presentation":"Seau de","Quantité":"1kg","Qte_par_Carton":18,"Aires":"VIT","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":0.0485,"Poids":21.0,"Refrigerer":1},{"ID":"LOBAZ_GD","Product":"LOBAZEN","Presentation":"Boîte de 10 sachets de","Quantité":"23,6 g","Qte_par_Carton":500,"Aires":"TRY","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.1,"Poids":19.0,"Refrigerer":0},{"ID":"LOBAZ_PT","Product":"LOBAZEN","Presentation":"Boîte de 10 sachets de","Quantité":"2,36 g","Qte_par_Carton":2000,"Aires":"TRY","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.097,"Poids":15.0,"Refrigerer":0},{"ID":"LOBZ+_GD","Product":"LOBAZEN PLUS","Presentation":"Boîte de 10 sachets de","Quantité":"23,9 g","Qte_par_Carton":500,"Aires":"TRY","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.1,"Poids":19.0,"Refrigerer":1},{"ID":"LOBZ+_PT","Product":"LOBAZEN PLUS","Presentation":"Boîte de 10 sachets de","Quantité":"2,39 g","Qte_par_Carton":2000,"Aires":"TRY","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.097,"Poids":15.0,"Refrigerer":1},{"ID":"LOBIC25_1C","Product":"LOBICOX","Presentation":"Boîte de","Quantité":"25 sachets de 100 gr","Qte_par_Carton":100,"Aires":"API","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0385,"Poids":12.0,"Refrigerer":0},{"ID":"LOBIC_1K","Product":"LOBICOX","Presentation":"Boîte de","Quantité":"10 sachets de 100 gr","Qte_par_Carton":100,"Aires":"API","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.057,"Poids":14.1,"Refrigerer":0},{"ID":"LOBIC15_10","Product":"LOBICOX","Presentation":"Boîte de","Quantité":"100 sachets de 15 gr","Qte_par_Carton":1000,"Aires":"API","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0695,"Poids":18.0,"Refrigerer":0},{"ID":"LOBIC10_1C","Product":"LOBICOX","Presentation":"Seaux de","Quantité":"1kg","Qte_par_Carton":18,"Aires":"API","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":0.0485,"Poids":21.0,"Refrigerer":0},{"ID":"LOBID_SA","Product":"LOBIDIUM","Presentation":"Boîte de 10 sachets de","Quantité":"1g","Qte_par_Carton":2000,"Aires":"TRY","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":0,"Chameaux":1,"Chien":1,"AMM":1,"Unité":"Sachets","Volume":0.0582,"Poids":12.5,"Refrigerer":1},{"ID":"LOBID+_SA","Product":"LOBIDIUM PLUS 125mg","Presentation":"Boîte de 10 sachets de","Quantité":"1g","Qte_par_Carton":2000,"Aires":"TRY","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":0,"Chameaux":1,"Chien":1,"AMM":1,"Unité":"Sachets","Volume":0.0573,"Poids":9.5,"Refrigerer":1},{"ID":"LOBIF_CO","Product":"LOBIFUGE VOLAILLE","Presentation":"Coffret de 10 boîtes de","Quantité":"100 cps","Qte_par_Carton":100,"Aires":"API","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Comprimés","Volume":0.0345,"Poids":6.0,"Refrigerer":1},{"ID":"LVACN_40","Product":"LOBIVAC NEW","Presentation":"flacon de 40 doses,","Quantité":"20ml","Qte_par_Carton":550,"Aires":"VAC","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.081,"Poids":19.8,"Refrigerer":1},{"ID":"LVACN_1C","Product":"LOBIVAC NEW","Presentation":"flacon de 100 doses,","Quantité":"50ml","Qte_par_Carton":232,"Aires":"VAC","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0814,"Poids":19.3,"Refrigerer":1},{"ID":"LVACN_1K","Product":"LOBIVAC NEW","Presentation":"flacon de 1000 doses,","Quantité":"500ml","Qte_par_Carton":30,"Aires":"VAC","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.07,"Poids":19.87,"Refrigerer":1},{"ID":"LIVEAIN_1K","Product":"LOBIVAC AI NEW ","Presentation":"flacon de 1000 doses,","Quantité":"250ml","Qte_par_Carton":60,"Aires":"VAC","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.081,"Poids":21.0,"Refrigerer":1},{"ID":"LIVEAIN_2K","Product":"LOBIVAC AI NEW ","Presentation":"flacon de 2000 doses,","Quantité":"500ml","Qte_par_Carton":30,"Aires":"VAC","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.033,"Poids":18.87,"Refrigerer":1},{"ID":"LOBZL1_1C","Product":"LOBIZOL 1000","Presentation":"Pot  de","Quantité":"100 boli","Qte_par_Carton":400,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0408,"Poids":20.5,"Refrigerer":0},{"ID":"LOBZL3_25K","Product":"LOBIZOL 300","Presentation":"Seaux de","Quantité":"2500 boli","Qte_par_Carton":5000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.049619,"Poids":15.0,"Refrigerer":0},{"ID":"LOBZL3_1C","Product":"LOBIZOL 300","Presentation":"Pot  de","Quantité":"100 boli","Qte_par_Carton":4000,"Aires":"API","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0284,"Poids":13.5,"Refrigerer":0},{"ID":"LOSPRY_21","Product":"LOBSPRAY","Presentation":"Spray de","Quantité":"210ml","Qte_par_Carton":24,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":1,"AMM":0,"Unité":"Sprays","Volume":0.0208,"Poids":7.1,"Refrigerer":1},{"ID":"LOBUMX_60","Product":"LOBUVIT MAXI","Presentation":"Boîte de","Quantité":"60 boli","Qte_par_Carton":960,"Aires":"VIT","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0313,"Poids":17.0,"Refrigerer":1},{"ID":"LOBUMN_1C","Product":"LOBUVIT MINI","Presentation":"Boîte de","Quantité":"100 boli","Qte_par_Carton":2000,"Aires":"VIT","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":1,"Chien":0,"AMM":1,"Unité":"Bolus","Volume":0.0222,"Poids":9.5,"Refrigerer":1},{"ID":"MAXICO_1C","Product":"MAXICOVIT","Presentation":"Coffret de 10 boîtes de","Quantité":"100 cps","Qte_par_Carton":1000,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Comprimés","Volume":0.0301,"Poids":8.5,"Refrigerer":1},{"ID":"MAXIL25_1C","Product":"MAXI LAYER ","Presentation":"Boîte de","Quantité":"25 sachets de 100 gr","Qte_par_Carton":200,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0643,"Poids":24.5,"Refrigerer":1},{"ID":"MAXIL100_10","Product":"MAXI LAYER ","Presentation":"Boîte de","Quantité":"10 sachets de 100 gr","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.037,"Poids":14.1,"Refrigerer":1},{"ID":"MAXIL100_15","Product":"MAXI LAYER ","Presentation":"Boîte de","Quantité":"100 sachets de 15 gr","Qte_par_Carton":1000,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0696,"Poids":18.5,"Refrigerer":1},{"ID":"MAXIL_1K","Product":"MAXI LAYER ","Presentation":"Seau de","Quantité":"1kg","Qte_par_Carton":18,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":0.0485,"Poids":21.6,"Refrigerer":1},{"ID":"OXY50_25","Product":"OXYMEG 50","Presentation":"Boîte de","Quantité":"25 sachets de 100 gr","Qte_par_Carton":100,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0316,"Poids":12.0,"Refrigerer":0},{"ID":"OXY50_1C","Product":"OXYMEG 50","Presentation":"Boîte de","Quantité":"10 sachets de 100 gr","Qte_par_Carton":100,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0367,"Poids":14.1,"Refrigerer":0},{"ID":"OXY50_10","Product":"OXYMEG 50","Presentation":"Boîte de","Quantité":"100 sachets de 15 gr","Qte_par_Carton":1000,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0695,"Poids":18.0,"Refrigerer":0},{"ID":"OXY50_1K","Product":"OXYMEG 50","Presentation":"Seau de","Quantité":"1 kg","Qte_par_Carton":18,"Aires":"ATB","vache":0,"volaille":1,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":0.0485,"Poids":21.0,"Refrigerer":0},{"ID":"PENIF_4M","Product":"PENI FORTE 4 MEGA","Presentation":" Boîte de","Quantité":"10 flacons","Qte_par_Carton":6000,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.05,"Poids":23.0,"Refrigerer":0},{"ID":"STRE_1C","Product":"STREPEN MAXI ","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Flacons","Volume":0.0243,"Poids":18.0,"Refrigerer":1},{"ID":"SULFA33_50","Product":"SULFA LOBS 33","Presentation":"Flacon de","Quantité":"50ml","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":1,"lapin":1,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.0255,"Poids":12.5,"Refrigerer":0},{"ID":"SULFA33_1C","Product":"SULFA LOBS 33","Presentation":"Flacon de","Quantité":"100ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":1,"lapin":1,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0},{"ID":"SULFA33_5C","Product":"SULFA LOBS 33","Presentation":"Flacon de","Quantité":"500ml","Qte_par_Carton":25,"Aires":"ATB","vache":1,"volaille":1,"lapin":1,"mouton":1,"chevre":1,"cheval":1,"porc":1,"Chameaux":0,"Chien":0,"AMM":0,"Unité":"Flacons","Volume":0.0236,"Poids":13.0,"Refrigerer":0},{"ID":"TYDOX_1C25","Product":"TYL-DOX ","Presentation":"Boîte de","Quantité":"25 sachets de 100 gr","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0316,"Poids":12.0,"Refrigerer":0},{"ID":"TYDOX_1C10","Product":"TYL-DOX ","Presentation":"Boîte de","Quantité":"10 sachets de 100 gr","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0367,"Poids":12.0,"Refrigerer":0},{"ID":"TYDOX_10","Product":"TYL-DOX ","Presentation":"Boîte de","Quantité":"100 sachets de 15 gr","Qte_par_Carton":1000,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Sachets","Volume":0.0696,"Poids":18.0,"Refrigerer":0},{"ID":"TYDOX_1K","Product":"TYL-DOX ","Presentation":"Seau de","Quantité":"1Kg","Qte_par_Carton":18,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"TYDOX_5K","Product":"TYL-DOX ","Presentation":"Seau de","Quantité":"5kg","Qte_par_Carton":4,"Aires":"ATB","vache":1,"volaille":1,"lapin":0,"mouton":0,"chevre":0,"cheval":0,"porc":0,"Chameaux":0,"Chien":0,"AMM":1,"Unité":"Seaux","Volume":null,"Poids":null,"Refrigerer":0},{"ID":"TYLOF_50","Product":"TYLO FORT 200","Presentation":"Flacon de","Quantité":"50 ml","Qte_par_Carton":100,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":1,"Unité":"Flacons","Volume":0.0255,"Poids":12.5,"Refrigerer":0},{"ID":"TYLOF_1C","Product":"TYLO FORT 200","Presentation":"Flacon de","Quantité":"100 ml","Qte_par_Carton":80,"Aires":"ATB","vache":1,"volaille":0,"lapin":0,"mouton":1,"chevre":1,"cheval":0,"porc":1,"Chameaux":1,"Chien":1,"AMM":1,"Unité":"Flacons","Volume":0.0319,"Poids":18.0,"Refrigerer":0}]
-    const conteneurs =[
-  { NAME: 'TC20',    Poids_max: 28000, Capacite_plus_de_quatre: 29.5, refrigerated: false },
-  { NAME: 'TC20R',   Poids_max: 28000, Capacite_plus_de_quatre: 27.0, refrigerated: true  },
-  { NAME: 'TC40',    Poids_max: 26000, Capacite_plus_de_quatre: 60.0, refrigerated: false },
-  { NAME: 'TC40R',   Poids_max: 26000, Capacite_plus_de_quatre: 57.0, refrigerated: true  },
-  { NAME: 'TC40HC',  Poids_max: 26000, Capacite_plus_de_quatre: 69.0, refrigerated: false },
-  { NAME: 'TC40HCR', Poids_max: 26000, Capacite_plus_de_quatre: 66.0, refrigerated: true  }
-];
-;
+    
     const tbody = document.querySelector('#product-table tbody');
     const monthAbbr = ['Jan - Mar','Avr - Jun','Jul - Sep','Oct - Dec'];
 
@@ -1008,170 +995,6 @@
       });
 
 
-    function findOptimalContainers(totalVol, totalPds, available) {
-  // 1) Build a simple list of {code, volCap, pdsCap}, sorted descending to help pruning
-  const types = available
-    .map(c => ({ code: c.NAME, volCap: c.Capacite_plus_de_quatre, pdsCap: c.Poids_max }))
-    .sort((a, b) => b.volCap - a.volCap);
-
-  let best = null;
-
-  function search(startIdx, currVol, currPds, combo) {
-    // If we already overshoot both requirements, record solution
-    if (currVol >= totalVol && currPds >= totalPds) {
-      const waste = currVol - totalVol;
-      if (
-        !best ||
-        waste < best.waste ||
-        (waste === best.waste && combo.length < best.containers.length)
-      ) {
-        best = {
-          containers: combo.slice(),  // copy
-          capVol:  currVol,
-          capPds:  currPds,
-          waste
-        };
-      }
-      return;
-    }
-
-    // Compute a lower bound on waste: if we take zero-volume containers, 
-    // or if we already have a best with zero waste, we can prune.
-    if (best && best.waste === 0) return;
-
-    // Try adding one more container of each type at or after startIdx
-    for (let i = startIdx; i < types.length; i++) {
-      const t = types[i];
-
-      // **Branch-and-bound**: if adding this one container already makes
-      // (currVol + t.volCap) + (currPds + t.pdsCap) 
-      // exceed the best possible by more than best.waste, skip it.
-      // 3) Pruning volumétrique : on ne compare que le gaspillage de volume
-      if (best) {
-        const possibleWaste = (currVol + t.volCap) - totalVol;
-        if (possibleWaste >= best.waste) continue;
-      }
-
-      combo.push(t.code);
-      search(i, currVol + t.volCap, currPds + t.pdsCap, combo);
-      combo.pop();
-    }
-  }
-
-  // Kick off the recursion
-  search(0, 0, 0, []);
-
-  if (!best) {
-    const large = types[0];
-    const count = Math.max(
-      Math.ceil(totalVol / large.volCap),
-      Math.ceil(totalPds / large.pdsCap)
-    );
-    return {
-      containers: Array(count).fill(large.code),
-      capVol: large.volCap * count,
-      capPds: large.pdsCap * count,
-      waste: large.volCap * count - totalVol
-    };
-  }
-
-  return best;
-}
-
-
-  /**
-   * Formatage du résultat HTML
-   */
-  function formatContainerMessage(title, res, totalVol, totalPds) {
-    return `
-      <div class="message categorie">
-        <div class="message-item titre">${title} :</div>
-        <div class="message-item">📦 Conteneurs : <strong>${res.containers.join(' + ')}</strong></div>
-        <div class="message-item">🔍 Capacité totale : <strong>${res.capVol.toFixed(3)} m³</strong>, <strong>${res.capPds.toFixed(0)} kg</strong></div>
-        <div class="message-item">⚖️ Besoins : <strong>${totalVol.toFixed(3)} m³</strong>, <strong>${totalPds.toFixed(0)} kg</strong></div>
-        <div class="message-item">📏 Espace restant : <strong>${(res.capVol-totalVol).toFixed(3)} m³</strong>, <strong>${(res.capPds-totalPds).toFixed(0)} kg</strong></div>
-      </div>
-    `;
-  }
-
-  document.getElementById('calculate-containers').addEventListener('click', () => {
-    let refVol = 0, refPds = 0, dryVol = 0, dryPds = 0;
-
-    // 0) calcul des totaux
-
-  // 0) calcul des totaux
-  produits.forEach((prod, i) => {
-    const qty     = Number(document.getElementById(`annual_${i}`).textContent) || 0;
-    const cartons = parseFloat(document.getElementById(`boxes_${i}`).textContent) || 0;
-    const vol     = cartons * (prod.Volume  || 0);
-    const pds     = cartons * (prod.Poids   || 0);
-
-    if (prod.Refrigerer) {
-      refVol += vol;
-      refPds += pds;
-    } else {
-      dryVol += vol;
-      dryPds += pds;
-    }
-  });
-  
-    if (refVol === 0 && refPds === 0 && dryVol === 0 && dryPds === 0) {
-    document.getElementById('container-result').innerHTML =
-      `<div class="message categorie">
-         <div class="message-item">Aucun besoin de conteneur pour ces prévisions.</div>
-       </div>`;
-    return;
-  }
-  let html = '';
-  let leftoverVol = 0, leftoverPds = 0;
-
-  let pseudoFroid = null;
-
-  // 1) Conteneurs réfrigérés si besoin
-  if (refVol > 0 || refPds > 0) {
-    const availRef = conteneurs.filter(c => c.refrigerated);
-    const resRef   = findOptimalContainers(refVol, refPds, availRef);
-    html += formatContainerMessage('Conteneurs réfrigérés', resRef, refVol, refPds);
-    leftoverVol = resRef.capVol - refVol;
-    leftoverPds = resRef.capPds - refPds;
-  }
-
-  // 2) On loge dans le reste de froid autant que possible, puis on ouvre des secs
-  if (dryVol > 0 || dryPds > 0) {
-    // d’abord remplir l’espace froid restant
-    if (leftoverVol > 0 && leftoverPds > 0) {
-      if (dryVol <= leftoverVol && dryPds <= leftoverPds) {
-        html += `
-          <div class="message categorie">
-            <div class="message-item">Tous les produits secs tiennent dans l'espace disponible des conteneurs réfrigérés.</div>
-          </div>`;
-        document.getElementById('container-result').innerHTML = html;
-        return;
-      }
-
-      const useVol = Math.max(0, Math.min(dryVol, leftoverVol));
-      const usePds = Math.max(0, Math.min(dryPds, leftoverPds));
-      dryVol -= useVol
-      dryPds -= usePds
-    }
-
-    const availDry = [
-      ...(leftoverVol > 0 && leftoverPds > 0
-        ? [{
-            NAME: 'RESTE FROID',
-            Capacite_plus_de_quatre: leftoverVol,
-            Poids_max: leftoverPds,
-            refrigerated: false
-          }]
-        : []),
-      ...conteneurs.filter(c => !c.refrigerated)
-    ];
-    const resDry = findOptimalContainers(dryVol, dryPds, availDry);
-    html += formatContainerMessage('Conteneurs secs', resDry, dryVol, dryPds);
-  }
-
-  document.getElementById('container-result').innerHTML = html;
-  });
 
 
 
